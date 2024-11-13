@@ -1,7 +1,11 @@
 "use client";
 import { Button } from "@mui/material";
-import { BuyNowButtonProps } from "@/app/utils/types/types";
+import { Product } from "@/app/utils/types";
 import { useCart } from "@/app/lib/providers/CartProvider/CartProvider";
+
+export type BuyNowButtonProps = {
+  product: Product;
+};
 
 const BuyNowButton: React.FC<BuyNowButtonProps> = ({ product }) => {
   const { addToCart, openCart } = useCart();

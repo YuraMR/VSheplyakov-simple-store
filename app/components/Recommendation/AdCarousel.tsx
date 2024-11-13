@@ -8,22 +8,24 @@ import Link from "next/link";
 import { Pagination } from "swiper/modules";
 import { styled } from "@mui/material/styles";
 import Image from "next/image";
-import { Product } from "@/app/utils/types/types";
+import { Product } from "@/app/utils/types";
 
 const CustomSwiper = styled(Swiper)(() => ({
   paddingBottom: "30px",
   "& .swiper-pagination-bullet": {
-    transition: "all 0.3s ease",
+    transition: "all 0.3s ease"
   },
   "& .swiper-pagination-bullet-active": {
     backgroundColor: "gray",
     opacity: 0.8,
     borderRadius: "6px",
-    width: "16px",
-  },
+    width: "16px"
+  }
 }));
 
-export function AdCaroucel({ products }: { products: Product[] }) {
+type AdCarouselProps = { products: Product[] };
+
+const AdCarousel: React.FC<AdCarouselProps> = ({ products }) => {
   return (
     <Fade in={true} timeout={700}>
       <Box pt={4}>
@@ -39,13 +41,13 @@ export function AdCaroucel({ products }: { products: Product[] }) {
           slidesPerView="auto"
           modules={[Pagination]}
           pagination={{
-            clickable: true,
+            clickable: true
           }}
           style={{
-            paddingBottom: "30px",
+            paddingBottom: "30px"
           }}
         >
-          {products.map((p) => (
+          {products.map(p => (
             <SwiperSlide key={p.id} style={{ width: "auto" }}>
               <Link
                 href={`/products/${p.slug}`}
@@ -62,13 +64,13 @@ export function AdCaroucel({ products }: { products: Product[] }) {
                     />
                   </Stack>
 
-                  <Stack direction={"column"} mt={1} sx={{ width: "200px" }}>
+                  <Stack direction="column" mt={1} sx={{ width: "200px" }}>
                     <Stack spacing={1} pl={1} width={"100%"}>
-                      <Typography fontWeight={"800"} fontSize={"16px"}>
+                      <Typography fontWeight="800" fontSize={"16px"}>
                         {p.name}
                       </Typography>
 
-                      <Typography fontWeight={"800"} fontSize={"16px"}>
+                      <Typography fontWeight="800" fontSize={"16px"}>
                         ${p.price}
                       </Typography>
                     </Stack>
@@ -81,4 +83,6 @@ export function AdCaroucel({ products }: { products: Product[] }) {
       </Box>
     </Fade>
   );
-}
+};
+
+export default AdCarousel;

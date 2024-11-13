@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import {
   Dialog,
   DialogTitle,
@@ -8,24 +9,24 @@ import {
   Box,
   Typography,
   Divider,
-  Stack,
+  Stack
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import DeleteIcon from "@mui/icons-material/Delete";
+
 import { useCart } from "@/app/lib/providers/CartProvider/CartProvider";
-import Image from "next/image";
 import CheckoutButton from "./ChecoutButton";
 
-export default function CartDialog() {
+const CartDialog = () => {
   const {
     cartItems,
     removeFromCart,
     increaseQuantity,
     decreaseQuantity,
     isCartOpen,
-    closeCart,
+    closeCart
   } = useCart();
 
   const totalPrice = cartItems.reduce(
@@ -46,19 +47,19 @@ export default function CartDialog() {
       </DialogTitle>
       <DialogContent dividers>
         {cartItems.length === 0 ? (
-          <Typography variant="body1" textAlign={"center"}>
+          <Typography variant="body1" textAlign="center">
             Your cart is empty. Add some products!
           </Typography>
         ) : (
           <>
-            {cartItems.map((item) => (
+            {cartItems.map(item => (
               <React.Fragment key={item.id}>
                 <Stack
-                  direction={"row"}
+                  direction="row"
                   gap={1}
                   sx={{
                     alignItems: "center",
-                    py: 2,
+                    py: 2
                   }}
                 >
                   <Stack
@@ -66,7 +67,7 @@ export default function CartDialog() {
                       width: { xs: "80px", md: "120px" },
                       height: { xs: "80px", md: "120px" },
 
-                      position: "relative",
+                      position: "relative"
                     }}
                   >
                     <Image
@@ -79,7 +80,7 @@ export default function CartDialog() {
                   <Stack sx={{ flexGrow: 1 }} alignItems={"center"}>
                     <Typography
                       variant="h6"
-                      textAlign={"center"}
+                      textAlign="center"
                       gutterBottom
                       fontWeight={600}
                     >
@@ -95,7 +96,7 @@ export default function CartDialog() {
                         mt: 1,
                         border: "1px solid lightGray",
                         borderRadius: "8px",
-                        p: 0.5,
+                        p: 0.5
                       }}
                     >
                       <IconButton
@@ -105,7 +106,7 @@ export default function CartDialog() {
                         <RemoveIcon sx={{ fontSize: "16px" }} />
                       </IconButton>
                       <Box sx={{ width: "30px" }}>
-                        <Typography textAlign={"center"}>
+                        <Typography textAlign="center">
                           {item.quantity}
                         </Typography>
                       </Box>
@@ -136,4 +137,6 @@ export default function CartDialog() {
       </DialogActions>
     </Dialog>
   );
-}
+};
+
+export default CartDialog;

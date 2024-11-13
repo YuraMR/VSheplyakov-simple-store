@@ -4,7 +4,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useCart } from "@/app/lib/providers/CartProvider/CartProvider";
 import CartDialog from "../CartDialog/CartDialog";
 
-export default function CartButton() {
+const CartButton = () => {
   const { cartItems, openCart } = useCart();
 
   const totalItems = cartItems.reduce(
@@ -23,3 +23,5 @@ export default function CartButton() {
     </>
   );
 }
+
+export default CartButton;

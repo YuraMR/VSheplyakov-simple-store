@@ -2,7 +2,7 @@
 import { Box, Button, Typography } from "@mui/material";
 import Link from "next/link";
 
-export default function NotFound() {
+const NotFound = () => {
   return (
     <>
       <Box
@@ -12,7 +12,7 @@ export default function NotFound() {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          backgroundColor: "lightgray",
+          backgroundColor: "lightgray"
         }}
       >
         <Typography variant="h2" gutterBottom>
@@ -27,4 +27,6 @@ export default function NotFound() {
       </Box>
     </>
   );
-}
+};
+
+export default NotFound;

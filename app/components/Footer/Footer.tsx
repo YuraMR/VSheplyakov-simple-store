@@ -3,13 +3,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { headerConfig } from "../Header/headerConfig";
 
-export function Footer() {
+const Footer = () => {
   return (
     <Box sx={{ bgcolor: "primary.main" }}>
-      <Stack component="footer" maxWidth={"lg"} m="0 auto" py={1}>
+      <Stack component="footer" maxWidth="lg" m="0 auto" py={1}>
         <Stack
-          alignItems={"center"}
-          direction={"row"}
+          alignItems="center"
+          direction="row"
           justifyContent={{ xs: "center", md: "space-between" }}
         >
           <Stack sx={{ display: { xs: "none", md: "flex" } }}>
@@ -28,7 +28,7 @@ export function Footer() {
                   sx={{
                     background: "linear-gradient(90deg, #ff6b6b, #f0e130)",
                     WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
+                    WebkitTextFillColor: "transparent"
                   }}
                 >
                   SimpleStore
@@ -36,17 +36,17 @@ export function Footer() {
               </Stack>
             </Link>
           </Stack>
-          <Stack maxWidth={"lg"} gap={2} direction={"row"}>
-            {headerConfig.map((item) => (
-              <Link key={item.name} href={item.href} style={{
-                color: "white",
-                textDecoration: "none",
-              }}>
-                <Typography
-                  variant="body1"
-                >
-                  {item.name}
-                </Typography>
+          <Stack maxWidth="lg" gap={2} direction="row">
+            {headerConfig.map(item => (
+              <Link
+                key={item.name}
+                href={item.href}
+                style={{
+                  color: "white",
+                  textDecoration: "none"
+                }}
+              >
+                <Typography variant="body1">{item.name}</Typography>
               </Link>
             ))}
 
@@ -54,7 +54,7 @@ export function Footer() {
               href="/terms"
               style={{
                 color: "white",
-                textDecoration: "none",
+                textDecoration: "none"
               }}
             >
               Terms
@@ -63,7 +63,7 @@ export function Footer() {
               href="/privacy"
               style={{
                 color: "white",
-                textDecoration: "none",
+                textDecoration: "none"
               }}
             >
               Privacy
@@ -77,4 +77,6 @@ export function Footer() {
       </Stack>
     </Box>
   );
-}
+};
+
+export default Footer;

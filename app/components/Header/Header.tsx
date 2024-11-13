@@ -1,31 +1,32 @@
 import { Button, Divider, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
+
 import { headerConfig } from "./headerConfig";
-import { Menu } from "./Menu";
+import Menu from "./Menu";
 import CartButton from "./CartButton";
 
-export default function Header() {
+const Header = () => {
   return (
     <>
       <Stack
-        maxWidth={"lg"}
+        maxWidth="lg"
         m="0 auto"
-        width={"100%"}
-        direction={"row"}
+        width="100%"
+        direction="row"
         justifyContent={"space-between"}
         alignItems={"center"}
         sx={{
-          p: 2,
+          p: 2
         }}
       >
         <Link href="/" style={{ textDecoration: "none", color: "inherit" }}>
           <Stack
-            direction={"row"}
+            direction="row"
             sx={{
               alignItems: "center",
               gap: 1,
-              textDecoration: "none",
+              textDecoration: "none"
             }}
           >
             <Image
@@ -41,7 +42,7 @@ export default function Header() {
               sx={{
                 background: "linear-gradient(90deg, #ff6b6b, #f0e130)",
                 WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
+                WebkitTextFillColor: "transparent"
               }}
             >
               SimpleStore
@@ -50,10 +51,10 @@ export default function Header() {
         </Link>
         <Stack
           sx={{ display: { xs: "none", md: "flex" } }}
-          direction={"row"}
+          direction="row"
           gap={2}
         >
-          {headerConfig.map((item) => (
+          {headerConfig.map(item => (
             <Link key={item.name} href={item.href}>
               <Button variant="text" size="large">
                 {item.name}
@@ -62,7 +63,7 @@ export default function Header() {
           ))}
         </Stack>
         <Stack
-          direction={"row"}
+          direction="row"
           gap={10}
           alignItems={"center"}
           justifyContent={"space-between"}
@@ -78,4 +79,6 @@ export default function Header() {
       <Divider />
     </>
   );
-}
+};
+
+export default Header;

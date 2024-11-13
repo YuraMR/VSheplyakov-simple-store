@@ -11,9 +11,14 @@ import {
 } from "@mui/material";
 import Link from "next/link";
 import BuyNowButton from "../BuyNowButton/BuyNowButton";
-import { Product } from "@/app/utils/types/types";
+import { Product } from "@/app/utils/types";
+import React from "react";
 
-export default function ProductCard({ product }: { product: Product }) {
+type ProductCardProps = {
+  product: Product
+}
+
+const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   return (
     <Card sx={{ maxWidth: 345, m: 2 }}>
       <CardMedia
@@ -62,3 +67,5 @@ export default function ProductCard({ product }: { product: Product }) {
     </Card>
   );
 }
+
+export default ProductCard;
