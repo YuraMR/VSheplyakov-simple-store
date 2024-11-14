@@ -1,16 +1,13 @@
 import { Box, Button, Drawer, Stack } from "@mui/material";
 import Link from "next/link";
-import { headerConfig } from "./headerConfig";
+import { ROUTES_VALUES } from "./routes";
 
 type MobileMenuProps = {
   open: boolean;
   close: () => void;
-}
+};
 
-const MobileMenu: React.FC<MobileMenuProps> = ({
-  open,
-  close,
-}) => {
+const MobileMenu: React.FC<MobileMenuProps> = ({ open, close }) => {
   return (
     <Box sx={{ display: { xs: "block", md: "none" } }}>
       <Drawer
@@ -18,31 +15,31 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
         open={open}
         sx={{
           "& .MuiDrawer-paper": {
-            width: "50%",
-          },
+            width: "50%"
+          }
         }}
         onClose={close}
       >
         <Stack p={4} gap={2}>
-          {headerConfig.map((item) => (
+          {ROUTES_VALUES.map(item => (
             <Link
-              key={item.name}
+              key={item.href}
               href={item.href}
               style={{
                 whiteSpace: "nowrap",
                 fontWeight: "bold",
                 textDecoration: "none",
-                color: "inherit",
+                color: "inherit"
               }}
               onClick={close}
             >
-              <Button variant="text">{item.name}</Button>
+              <Button variant="text">{item.label}</Button>
             </Link>
           ))}
         </Stack>
       </Drawer>
     </Box>
   );
-}
+};
 
 export default MobileMenu;

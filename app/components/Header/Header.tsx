@@ -2,7 +2,7 @@ import { Button, Divider, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 
-import { headerConfig } from "./headerConfig";
+import { ROUTES, ROUTES_VALUES } from "./routes";
 import Menu from "./Menu";
 import CartButton from "./CartButton";
 
@@ -20,7 +20,10 @@ const Header = () => {
           p: 2
         }}
       >
-        <Link href="/" style={{ textDecoration: "none", color: "inherit" }}>
+        <Link
+          href={ROUTES.HOME.href}
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
           <Stack
             direction="row"
             sx={{
@@ -54,10 +57,10 @@ const Header = () => {
           direction="row"
           gap={2}
         >
-          {headerConfig.map(item => (
-            <Link key={item.name} href={item.href}>
+          {ROUTES_VALUES.map(item => (
+            <Link key={item.href} href={item.href}>
               <Button variant="text" size="large">
-                {item.name}
+                {item.label}
               </Button>
             </Link>
           ))}

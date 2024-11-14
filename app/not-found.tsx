@@ -1,6 +1,7 @@
 "use client";
 import { Box, Button, Typography } from "@mui/material";
 import Link from "next/link";
+import { ROUTES } from "@/app/components/Header/routes";
 
 const NotFound = () => {
   return (
@@ -21,7 +22,7 @@ const NotFound = () => {
         <Typography variant="h4">
           The page you are looking for does not exist.
         </Typography>
-        <Link href={"/"} style={{ marginTop: "30px" }}>
+        <Link href={ROUTES.HOME.href} style={{ marginTop: "30px" }}>
           <Button variant="contained">Return Home page</Button>
         </Link>
       </Box>

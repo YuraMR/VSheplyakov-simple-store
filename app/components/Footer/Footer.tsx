@@ -1,7 +1,8 @@
 import { Box, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
-import { headerConfig } from "../Header/headerConfig";
+
+import { ROUTES, ROUTES_VALUES } from "../Header/routes";
 
 const Footer = () => {
   return (
@@ -13,7 +14,7 @@ const Footer = () => {
           justifyContent={{ xs: "center", md: "space-between" }}
         >
           <Stack sx={{ display: { xs: "none", md: "flex" } }}>
-            <Link href="/">
+            <Link href={ROUTES.HOME.href}>
               <Stack direction="row" gap={1} alignItems="center">
                 <Image
                   src="/logo.jpg"
@@ -37,16 +38,16 @@ const Footer = () => {
             </Link>
           </Stack>
           <Stack maxWidth="lg" gap={2} direction="row">
-            {headerConfig.map(item => (
+            {ROUTES_VALUES.map(item => (
               <Link
-                key={item.name}
+                key={item.href}
                 href={item.href}
                 style={{
                   color: "white",
                   textDecoration: "none"
                 }}
               >
-                <Typography variant="body1">{item.name}</Typography>
+                <Typography variant="body1">{item.label}</Typography>
               </Link>
             ))}
 
