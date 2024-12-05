@@ -1,19 +1,21 @@
 import { Container, Stack, Typography } from "@mui/material";
 
-export default function Terms() {
+const Terms = () => {
   return (
     <Stack
       flexGrow={1}
-      alignItems={"center"}
+      alignItems="center"
       gap={2}
-      justifyContent={"center"}
-      maxWidth={"lg"}
+      justifyContent="center"
+      maxWidth="lg"
       component={Container}
     >
       <Typography variant="h2">Terms</Typography>
-      <Typography variant="h6" textAlign={"center"}>
+      <Typography variant="h6" textAlign="center">
         The page is under construction. Please check back later.
       </Typography>
     </Stack>
   );
-}
+};
+
+export default Terms;

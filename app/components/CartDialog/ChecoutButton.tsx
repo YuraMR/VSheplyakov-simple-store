@@ -2,7 +2,7 @@ import { useCart } from "@/app/lib/providers/CartProvider/CartProvider";
 import { Button } from "@mui/material";
 import { useCallback } from "react";
 
-export default function CheckoutButton() {
+const CheckoutButton = () => {
   const { closeCart, clearCart, cartItems } = useCart();
 
   const handleCheckout = useCallback(() => {
@@ -20,4 +20,6 @@ export default function CheckoutButton() {
       Checkout
     </Button>
   );
-}
+};
+
+export default CheckoutButton;

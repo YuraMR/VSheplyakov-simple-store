@@ -4,12 +4,10 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { useState } from "react";
 import MobileMenu from "./MobileMenu";
 
-export function Menu() {
+const Menu = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
+  const toggleMenu = () => setMenuOpen(!menuOpen);
 
   return (
     <>
@@ -17,11 +15,13 @@ export function Menu() {
         color="inherit"
         size="large"
         sx={{ display: { sx: "block", md: "none" } }}
-        onClick={() => toggleMenu()}
+        onClick={toggleMenu}
       >
         <MenuIcon sx={{ fontSize: "32px" }} />
       </IconButton>
       <MobileMenu open={menuOpen} close={toggleMenu} />
     </>
   );
-}
+};
+
+export default Menu;

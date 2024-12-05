@@ -8,20 +8,17 @@ import {
   ListItemText,
   CardMedia,
   Stack,
-  Box,
+  Box
 } from "@mui/material";
-import { AdCaroucel } from "@/app/components/Recommendation/AdCaroucel";
+import AdCarousel from "@/app/components/Recommendation/AdCarousel";
 import { getProduct, getProducts } from "@/app/lib/data/products";
 import BuyNowButton from "@/app/components/BuyNowButton/BuyNowButton";
-import { Product } from "@/app/utils/types/types";
+import { Product } from "@/app/utils/types";
+import React from "react";
 
-type Params = Promise<{ slug: string }>;
+type Params = { slug: string };
 
-export default async function ProductDetailedPage({
-  params,
-}: {
-  params: Params;
-}) {
+const ProductDetailedPage = async ({ params }: { params: Params }) => {
   try {
     const { slug } = await params;
     const products = (await getProducts()) as Product[];
@@ -41,7 +38,7 @@ export default async function ProductDetailedPage({
                 image={product.image}
                 alt={product.name}
                 sx={{
-                  borderRadius: 2,
+                  borderRadius: 2
                 }}
               />
             </Stack>
@@ -111,11 +108,13 @@ export default async function ProductDetailedPage({
             </Box>
           </Grid>
         </Grid>
-        <AdCaroucel products={products} />
+        <AdCarousel products={products} />
       </Container>
     );
   } catch (error) {
     console.error(error);
     return null;
   }
-}
+};
+
+export default ProductDetailedPage;

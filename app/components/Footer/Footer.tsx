@@ -1,19 +1,20 @@
 import { Box, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
-import { headerConfig } from "../Header/headerConfig";
 
-export function Footer() {
+import { ROUTES, ROUTES_VALUES } from "../Header/routes";
+
+const Footer = () => {
   return (
     <Box sx={{ bgcolor: "primary.main" }}>
-      <Stack component="footer" maxWidth={"lg"} m="0 auto" py={1}>
+      <Stack component="footer" maxWidth="lg" m="0 auto" py={1}>
         <Stack
-          alignItems={"center"}
-          direction={"row"}
+          alignItems="center"
+          direction="row"
           justifyContent={{ xs: "center", md: "space-between" }}
         >
           <Stack sx={{ display: { xs: "none", md: "flex" } }}>
-            <Link href="/">
+            <Link href={ROUTES.HOME.href}>
               <Stack direction="row" gap={1} alignItems="center">
                 <Image
                   src="/logo.jpg"
@@ -28,7 +29,7 @@ export function Footer() {
                   sx={{
                     background: "linear-gradient(90deg, #ff6b6b, #f0e130)",
                     WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
+                    WebkitTextFillColor: "transparent"
                   }}
                 >
                   SimpleStore
@@ -36,17 +37,17 @@ export function Footer() {
               </Stack>
             </Link>
           </Stack>
-          <Stack maxWidth={"lg"} gap={2} direction={"row"}>
-            {headerConfig.map((item) => (
-              <Link key={item.name} href={item.href} style={{
-                color: "white",
-                textDecoration: "none",
-              }}>
-                <Typography
-                  variant="body1"
-                >
-                  {item.name}
-                </Typography>
+          <Stack maxWidth="lg" gap={2} direction="row">
+            {ROUTES_VALUES.map(item => (
+              <Link
+                key={item.href}
+                href={item.href}
+                style={{
+                  color: "white",
+                  textDecoration: "none"
+                }}
+              >
+                <Typography variant="body1">{item.label}</Typography>
               </Link>
             ))}
 
@@ -54,7 +55,7 @@ export function Footer() {
               href="/terms"
               style={{
                 color: "white",
-                textDecoration: "none",
+                textDecoration: "none"
               }}
             >
               Terms
@@ -63,7 +64,7 @@ export function Footer() {
               href="/privacy"
               style={{
                 color: "white",
-                textDecoration: "none",
+                textDecoration: "none"
               }}
             >
               Privacy
@@ -77,4 +78,6 @@ export function Footer() {
       </Stack>
     </Box>
   );
-}
+};
+
+export default Footer;

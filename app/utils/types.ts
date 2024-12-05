@@ -6,6 +6,7 @@ export type Product = {
   description: string;
   image: string;
 };
+
 export type CartItem = Product & { quantity: number };
 
 export type CartContextType = {
@@ -18,25 +19,4 @@ export type CartContextType = {
   closeCart: () => void;
   isCartOpen: boolean;
   clearCart: () => void;
-};
-
-export type CartDialogProps = {
-  open: boolean;
-  handleClose: () => void;
-  cartItems: CartItem[];
-  handleRemoveItem: (id: number) => void;
-};
-
-export type Params = Promise<{ slug: string }>;
-
-export type ProductDetailedPageProps = {
-  params: Params;
-};
-
-export type ProductCardProps = {
-  product: Product;
-};
-
-export type BuyNowButtonProps = {
-  product: Product;
 };

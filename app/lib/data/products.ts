@@ -1,4 +1,4 @@
-import { supabase } from "../supsbaseClient";
+import { supabase } from "../supabaseClient";
 // import sql from "better-sqlite3";
 
 // const db = sql("phones.db");
